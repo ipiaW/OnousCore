@@ -1,0 +1,200 @@
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                                                                           ║
+# ║                 ██████╗ ███╗   ██╗ ██████╗ ██╗   ██╗███████╗              ║
+# ║                ██╔═══██╗████╗  ██║██╔═══██╗██║   ██║██╔════╝              ║
+# ║                ██║   ██║██╔██╗ ██║██║   ██║██║   ██║███████╗              ║
+# ║                ██║   ██║██║╚██╗██║██║   ██║██║   ██║╚════██║              ║
+# ║                ╚██████╔╝██║ ╚████║╚██████╔╝╚██████╔╝███████║              ║
+# ║                 ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝  ╚═════╝ ╚══════╝              ║
+# ║                                                                           ║
+# ║                               Configuration File                          ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+# ═══════════════════════════════════════
+# Teleport Settings
+# ═══════════════════════════════════════
+teleport:
+  # Delay before teleport (seconds) - digunakan untuk TPA, RTP, dsb.
+  delay: 3
+  
+  # Cancel teleport when player moves
+  cancel-on-move: true
+  
+  # Cancel teleport when player takes damage
+  cancel-on-damage: true
+
+# ═══════════════════════════════════════
+# TPA Settings
+# ═══════════════════════════════════════
+tpa:
+  # Request expiration time (seconds)
+  expire: 60
+  
+  # Cooldown between TPA requests (seconds)
+  cooldown: 30
+
+# ═══════════════════════════════════════
+# RTP (Random Teleport) Settings
+# ═══════════════════════════════════════
+rtp:
+  # Cooldown antara RTP (seconds)
+  cooldown: 120
+  
+  # Minimum jarak dari spawn
+  min-range: 10000
+  
+  # Maximum jarak dari spawn
+  max-range: 15000
+  
+  # Max percobaan cari lokasi aman
+  max-attempts: 15
+  
+  # Enable/disable per world type
+  worlds:
+    overworld: true
+    nether: true
+    end: false
+
+# ═══════════════════════════════════════
+# Economy Settings
+# ═══════════════════════════════════════
+economy:
+  # Starting balance untuk pemain baru
+  starting-balance: 10
+  
+  # Currency symbol (tampil di depan jumlah)
+  symbol: "⛃"
+  
+  # Jumlah pemain yang di-scan untuk leaderboard
+  leaderboard-size: 100
+  
+  # Pay command cooldown (seconds)
+  pay-cooldown: 5
+  
+  # Minimal amount /pay
+  min-pay: 1
+
+# ═══════════════════════════════════════
+# Cooldowns (seconds)
+# ═══════════════════════════════════════
+cooldowns:
+  heal: 300         # /heal
+  feed: 300         # /feed
+  random-tpa: 600   # random TPA (kalau nantinya dipakai)
+  tpahere: 30       # ✅ cooldown untuk /tpahere dan /tpahere *
+
+# ═══════════════════════════════════════
+# Spawn Settings
+# ═══════════════════════════════════════
+spawn:
+  # Teleport ke spawn saat first join
+  teleport-on-first-join: true
+  
+  # Teleport ke spawn saat respawn
+  teleport-on-respawn: true
+
+# ═══════════════════════════════════════
+# Sound Settings
+# ═══════════════════════════════════════
+sounds:
+  # Enable/disable semua sound
+  enabled: true
+  
+  # Volume (0.0 - 1.0)
+  volume: 0.5
+
+# ═══════════════════════════════════════
+# Messages
+# ═══════════════════════════════════════
+messages:
+  # ─────────────────────────────────────
+  # General
+  # ─────────────────────────────────────
+  prefix: "&#FFB800⬥ &#AAAAAA"
+  no-permission: "&#FF6B6BYou don't have permission!"
+  player-only: "&#FF6B6BOnly players can use this!"
+  player-not-found: "&#FF6B6BPlayer not found!"
+  player-offline: "&#FF6B6BPlayer is offline!"
+  cooldown: "&#FF6B6BWait &#FFB800{time}s &#FF6B6Bbefore using this again!"
+
+  # ─────────────────────────────────────
+  # Teleport
+  # ─────────────────────────────────────
+  teleport-starting: "&#FFB800⏳ &#AAAAAADon't move..."
+  teleport-cancelled: "&#FF6B6B✕ Teleport cancelled!"
+  teleport-success: "&#7AFF7A✓ Teleported!"
+
+  # ─────────────────────────────────────
+  # Spawn
+  # ─────────────────────────────────────
+  spawn-not-set: "&#FF6B6BSpawn is not set!"
+  spawn-set: "&#7AFF7A✓ Spawn location set!"
+  spawn-teleporting: "&#AAAAAATeleporting to spawn..."
+
+  # ─────────────────────────────────────
+  # Warp
+  # ─────────────────────────────────────
+  warp-not-found: "&#FF6B6BWarp not found!"
+  warp-exists: "&#FF6B6BWarp already exists!"
+  warp-created: "&#7AFF7A✓ Warp &#FFFFFF{name} &#7AFF7Acreated!"
+  warp-deleted: "&#7AFF7A✓ Warp deleted!"
+  warp-teleporting: "&#AAAAAATeleporting to &#FFB800{name}&#AAAAAA..."
+  warp-empty: "&#FF6B6BNo warps available!"
+
+  # ─────────────────────────────────────
+  # TPA
+  # ─────────────────────────────────────
+  tpa-sent: "&#AAAAAATPA request sent to &#FFB800{player}"
+  tpa-received: "&#FFB800{player} &#AAAAAAwants to teleport to you!"
+  tpa-accepted: "&#7AFF7A✓ TPA accepted!"
+  tpa-denied: "&#FF6B6B✕ TPA denied!"
+  tpa-expired: "&#AAAAAATPA request expired."
+  tpa-no-pending: "&#FF6B6BNo pending TPA requests!"
+  tpa-already-pending: "&#FF6B6BYou already have a pending request!"
+  tpa-self: "&#FF6B6BYou can't TPA to yourself!"
+  tpa-disabled: "&#FF6B6BThis player has TPA disabled!"
+
+  # ─────────────────────────────────────
+  # RTP
+  # ─────────────────────────────────────
+  rtp-searching: "&#FFB800🔍 &#AAAAAASearching for safe location..."
+  rtp-success: "&#7AFF7A✓ Teleported to random location!"
+  rtp-failed: "&#FF6B6BCouldn't find safe location. Try again!"
+  rtp-disabled-world: "&#FF6B6BRTP is disabled in this world!"
+
+  # ─────────────────────────────────────
+  # Economy
+  # ─────────────────────────────────────
+  pay-success-sent: "&#7AFF7ASent &#FFB800{amount} &#7AFF7Ato &#FFFFFF{player}"
+  pay-success-received: "&#7AFF7AReceived &#FFB800{amount} &#7AFF7Afrom &#FFFFFF{player}"
+  pay-cancelled: "&#AAAAAPayment cancelled."
+  pay-insufficient: "&#FF6B6BInsufficient balance!"
+  pay-invalid-amount: "&#FF6B6BInvalid amount!"
+  pay-self: "&#FF6B6BYou can't pay yourself!"
+
+  # ─────────────────────────────────────
+  # Staff / Utility
+  # ─────────────────────────────────────
+  fly-enabled: "&#7AFF7A✓ Fly enabled!"
+  fly-disabled: "&#FF6B6B✕ Fly disabled!"
+  fly-enabled-other: "&#7AFF7A✓ Fly enabled for &#FFFFFF{player}"
+  fly-disabled-other: "&#FF6B6B✕ Fly disabled for &#FFFFFF{player}"
+  
+  heal-success: "&#7AFF7A✓ You have been healed!"
+  heal-other: "&#7AFF7A✓ Healed &#FFFFFF{player}"
+  
+  feed-success: "&#7AFF7A✓ You have been fed!"
+  feed-other: "&#7AFF7A✓ Fed &#FFFFFF{player}"
+  
+  gamemode-changed: "&#AAAAAAGamemode set to &#FFB800{mode}"
+  gamemode-changed-other: "&#AAAAAASet &#FFFFFF{player} &#AAAAAAAAgamemode to &#FFB800{mode}"
+  
+  time-changed: "&#AAAAAATime set to &#FFB800{time}"
+
+  # ─────────────────────────────────────
+  # Messages (Private Chat)
+  # ─────────────────────────────────────
+  msg-format-sent: "&#555555[&#FFB800You &#555555→ &#FFB800{player}&#555555] &#FFFFFF{message}"
+  msg-format-received: "&#555555[&#FFB800{player} &#555555→ &#FFB800You&#555555] &#FFFFFF{message}"
+  msg-disabled: "&#FF6B6BThis player has messages disabled!"
+  msg-no-reply: "&#FF6B6BNo one to reply to!"
