@@ -1,0 +1,280 @@
+# ╔═══════════════════════════════════════════════════════════╗
+# ║                      ONOUS CORE                           ║
+# ║           Minimalist Core Plugin for Survival             ║
+# ╚═══════════════════════════════════════════════════════════╝
+
+name: OnousCore
+version: ${project.version}
+main: com.onous.core.OnousCore
+api-version: "1.21"
+author: OnousTeam
+description: Minimalist core plugin for survival servers
+
+softdepend:
+  - PlaceholderAPI
+  - Multiverse-Core
+  - Vault
+
+# ═══════════════════════════════════════
+# Commands
+# ═══════════════════════════════════════
+commands:
+  # ─────────────────────────────────────
+  # Spawn / Hub
+  # ─────────────────────────────────────
+  spawn:
+    description: Teleport to lobby/spawn
+    usage: /<command>
+  setspawn:
+    description: Set lobby/spawn location
+    usage: /<command>
+  hub:
+    description: Teleport to lobby/spawn
+    usage: /<command>
+    aliases: [lobby]
+  friend:
+    description: Open friend menu and manage friends
+    usage: /<command> [add|remove] [player]
+    aliases: [friends,fl]
+
+  # ─────────────────────────────────────
+  # Warp / TPA / RTP
+  # ─────────────────────────────────────
+  warp:
+    description: Open warp menu
+    usage: /<command> [name]
+  setwarp:
+    description: Create a warp
+    usage: /<command> <name>
+  delwarp:
+    description: Delete a warp
+    usage: /<command> <name>
+
+  tpa:
+    description: Send teleport request
+    usage: /<command> <player>
+  tpaccept:
+    description: Accept TPA request
+    usage: /<command>
+  tpdeny:
+    description: Deny TPA request
+    usage: /<command>
+
+  rtp:
+    description: Random teleport
+    usage: /<command>
+
+  tpahere:
+    description: Request player(s) to teleport to you
+    usage: /<command> <player|*>
+
+  # ─────────────────────────────────────
+  # Economy
+  # ─────────────────────────────────────
+  bal:
+    description: View balance leaderboard
+    usage: /<command> [player]
+    aliases: [balance, money]
+  pay:
+    description: Transfer money to player
+    usage: /<command> <player> <amount>
+  eco:
+    description: Economy admin commands
+    usage: /<command> <set/add/take> <player> <amount>
+    aliases: [economy]
+
+  # ─────────────────────────────────────
+  # Player Utilities
+  # ─────────────────────────────────────
+  settings:
+    description: Open settings menu
+    usage: /<command>
+  msg:
+    description: Send private message
+    usage: /<command> <player> <message>
+    aliases: [tell, w, pm]
+  reply:
+    description: Reply to last message
+    usage: /<command> <message>
+    aliases: [r]
+
+  # ─────────────────────────────────────
+  # Staff Utilities
+  # ─────────────────────────────────────
+  fly:
+    description: Toggle fly mode
+    usage: /<command> [player]
+  heal:
+    description: Heal yourself or player
+    usage: /<command> [player]
+  feed:
+    description: Feed yourself or player
+    usage: /<command> [player]
+  gmc:
+    description: Switch to creative mode
+    usage: /<command> [player]
+  gms:
+    description: Switch to survival mode
+    usage: /<command> [player]
+  gma:
+    description: Switch to adventure mode
+    usage: /<command> [player]
+  gmsp:
+    description: Switch to spectator mode
+    usage: /<command> [player]
+  time:
+    description: Change world time
+    usage: /<command> <day/night/noon/midnight>
+
+# ═══════════════════════════════════════
+# Permissions
+# ═══════════════════════════════════════
+permissions:
+  # ─────────────────────────────────────
+  # Player Permissions
+  # ─────────────────────────────────────
+  onous.spawn:
+    description: Use /spawn and /hub
+    default: true
+  onous.warp:
+    description: Use /warp
+    default: true
+  onous.tpa:
+    description: Use /tpa, /tpaccept, /tpdeny
+    default: true
+  onous.rtp:
+    description: Use /rtp
+    default: true
+  onous.balance:
+    description: Use /bal
+    default: true
+  onous.pay:
+    description: Use /pay
+    default: true
+  onous.settings:
+    description: Use /settings
+    default: true
+  onous.msg:
+    description: Use /msg and /reply
+    default: true
+  onous.tpahere:
+    description: Use /tpahere <player>
+    default: true
+
+  # ─────────────────────────────────────
+  # Staff / Admin Permissions
+  # ─────────────────────────────────────
+  onous.spawn.set:
+    description: Use /setspawn
+    default: op
+
+  onous.warp.set:
+    description: Use /setwarp
+    default: op
+  onous.warp.delete:
+    description: Use /delwarp
+    default: op
+
+  onous.fly:
+    description: Use /fly
+    default: op
+  onous.fly.others:
+    description: Use /fly on others
+    default: op
+
+  onous.heal:
+    description: Use /heal
+    default: op
+  onous.heal.others:
+    description: Use /heal on others
+    default: op
+
+  onous.feed:
+    description: Use /feed
+    default: op
+  onous.feed.others:
+    description: Use /feed on others
+    default: op
+
+  onous.gamemode:
+    description: Use gamemode commands on self
+    default: op
+  onous.gamemode.others:
+    description: Use gamemode commands on others
+    default: op
+
+  onous.time:
+    description: Use /time
+    default: op
+
+  onous.eco:
+    description: Use /eco admin commands
+    default: op
+
+  # ─────────────────────────────────────
+  # TPAHere Extra Permissions
+  # ─────────────────────────────────────
+  onous.tpahere.all:
+    description: Use /tpahere * (teleport all to you without confirm)
+    default: op
+  onous.tpahere.exempt:
+    description: Prevent being teleported by /tpahere *
+    default: op
+
+  # ─────────────────────────────────────
+  # Bypass Permissions
+  # ─────────────────────────────────────
+  onous.bypass.cooldown:
+    description: Bypass all cooldowns (tpa, rtp, tpahere, etc.)
+    default: op
+  onous.bypass.delay:
+    description: Bypass teleport delay
+    default: op
+
+  onous.friend:
+    description: Use /friend commands
+    default: true
+
+# Dan jadikan child dari onous.player
+  onous.player:
+    description: All basic player permissions  
+    children:
+      onous.spawn: true
+      onous.warp: true
+      onous.tpa: true
+      onous.rtp: true
+      onous.balance: true
+      onous.pay: true
+      onous.settings: true
+      onous.msg: true
+      onous.tpahere: true
+      onous.friend: true   # ✅
+
+  onous.staff:
+    description: All staff permissions
+    default: op
+    children:
+      onous.player: true
+      onous.spawn.set: true
+      onous.warp.set: true
+      onous.warp.delete: true
+      onous.fly: true
+      onous.fly.others: true
+      onous.heal: true
+      onous.heal.others: true
+      onous.feed: true
+      onous.feed.others: true
+      onous.gamemode: true
+      onous.gamemode.others: true
+      onous.time: true
+      onous.eco: true
+      onous.tpahere.all: true
+      onous.tpahere.exempt: true
+
+  onous.admin:
+    description: Full access
+    default: op
+    children:
+      onous.staff: true
+      onous.bypass.cooldown: true
+      onous.bypass.delay: true
